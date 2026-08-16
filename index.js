@@ -23,17 +23,34 @@ function playround(humanChoice, computerChoice) {
     human_score += 1;
     console.log(`Human plays ${humanChoice}`);
     console.log(`Computer plays ${computerChoice}`);
-    console.log("Human won!");
+    console.log("Human won the round!");
+    console.log("========================================");
   } else if (humanChoice == computerChoice) {
     console.log(`Computer plays ${computerChoice}`);
     console.log(`Human plays ${humanChoice}`);
     console.log("Its a tie go again!");
+    console.log("========================================");
   } else {
     computer_score += 1;
     console.log(`Computer plays ${computerChoice}`);
     console.log(`Human plays ${humanChoice}`);
-    console.log("Computer won!");
+    console.log("Computer won the round!");
+    console.log("========================================");
   }
 }
 
-playround(getHumanchoice(), getcomputerchoice());
+function playGame() {
+  while (human_score < 3 && computer_score < 3)
+    playround(getHumanchoice(), getcomputerchoice());
+  if (human_score === 3) {
+    console.log("========================================");
+    console.log(`Final score: ${computer_score}:${human_score}`);
+    console.log("Human won overall!");
+  } else {
+    console.log("========================================");
+    console.log(`Final score: ${computer_score}:${human_score}`);
+    console.log("Computer won overall!");
+  }
+}
+
+playGame();
