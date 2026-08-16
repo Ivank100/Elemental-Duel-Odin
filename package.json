@@ -1,0 +1,22 @@
+{
+  "name": "rock-paper-scisscors-odin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ivank100/rock-paper-scisscors-odin.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ivank100/rock-paper-scisscors-odin/issues"
+  },
+  "homepage": "https://github.com/Ivank100/rock-paper-scisscors-odin#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
