@@ -1,26 +1,26 @@
 const prompt = require("prompt-sync")();
 
-let human_score = 0;
-let computer_score = 0;
+let humanScore = 0;
+let computerScore = 0;
 
-function getcomputerchoice() {
-  let cp_choice = Math.floor(Math.random() * 3);
+function getComputerChoice() {
+  let cpChoice = Math.floor(Math.random() * 3);
   const choices = ["rock", "scissors", "paper"];
-  let computerChoice = choices[cp_choice];
+  let computerChoice = choices[cpChoice];
   return computerChoice;
 }
 
-function getHumanchoice() {
+function getHumanChoice() {
   let choice = prompt("Enter your choice: ").toLowerCase();
   return choice;
 }
-function playround(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
   if (
     (humanChoice == "rock" && computerChoice == "scissors") ||
     (humanChoice == "scissors" && computerChoice == "paper") ||
     (humanChoice == "paper" && computerChoice == "rock")
   ) {
-    human_score += 1;
+    humanScore += 1;
     console.log(`Human plays ${humanChoice}`);
     console.log(`Computer plays ${computerChoice}`);
     console.log("Human won the round!");
@@ -31,7 +31,7 @@ function playround(humanChoice, computerChoice) {
     console.log("Its a tie go again!");
     console.log("========================================");
   } else {
-    computer_score += 1;
+    computerScore += 1;
     console.log(`Computer plays ${computerChoice}`);
     console.log(`Human plays ${humanChoice}`);
     console.log("Computer won the round!");
@@ -40,15 +40,15 @@ function playround(humanChoice, computerChoice) {
 }
 
 function playGame() {
-  while (human_score < 3 && computer_score < 3)
-    playround(getHumanchoice(), getcomputerchoice());
-  if (human_score === 3) {
+  while (humanScore < 3 && computerScore < 3)
+    playRound(getHumanChoice(), getComputerChoice());
+  if (humanScore === 3) {
     console.log("========================================");
-    console.log(`Final score: ${computer_score}:${human_score}`);
+    console.log(`Final score: ${computerScore}:${humanScore}`);
     console.log("Human won overall!");
   } else {
     console.log("========================================");
-    console.log(`Final score: ${computer_score}:${human_score}`);
+    console.log(`Final score: ${computerScore}:${humanScore}`);
     console.log("Computer won overall!");
   }
 }
