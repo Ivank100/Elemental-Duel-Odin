@@ -2,6 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 let round = 1;
 let gameStart = false;
+let gameId = 0;
 
 function getComputerChoice() {
   let cpChoice = Math.floor(Math.random() * 3);
@@ -24,18 +25,19 @@ function waitForUserChoice() {
   });
 }
 async function play() {
+  const myId = ++gameId;
   while (humanScore < 3 && computerScore < 3) {
+    if (myId !== gameId) return;
+    title.textContent = `Round ${round}`;
     const humanChoice = await waitForUserChoice();
+    if (myId !== gameId) return;
     playRound(humanChoice, getComputerChoice());
+    round += 1;
   }
   if (humanScore === 3) {
-    console.log("========================================");
-    console.log(`Final score: ${computerScore}:${humanScore}`);
-    console.log("Human won overall!");
+    title.textContent = "Player wins!";
   } else {
-    console.log("========================================");
-    console.log(`Final score: ${computerScore}:${humanScore}`);
-    console.log("Computer won overall!");
+    title.textContent = "Computer wins!";
   }
 }
 
@@ -47,8 +49,11 @@ function createMoveImg(choice) {
 }
 
 function playRound(humanChoice, computerChoice) {
+  const removeGameMoves = showMove.querySelectorAll("img");
+  removeGameMoves.forEach((element) => element.remove());
   playerMove.appendChild(createMoveImg(humanChoice));
   computerMove.appendChild(createMoveImg(computerChoice));
+  document.querySelector("#Winner span").textContent = "Winner!";
 
   if (
     (humanChoice == "fireball" && computerChoice == "rain") ||
@@ -56,7 +61,6 @@ function playRound(humanChoice, computerChoice) {
     (humanChoice == "rain" && computerChoice == "poisonwave")
   ) {
     humanScore += 1;
-    round += 1;
     playerCounter.textContent = humanScore;
     console.log(`Human plays ${humanChoice}`);
     console.log(`Computer plays ${computerChoice}`);
@@ -64,13 +68,12 @@ function playRound(humanChoice, computerChoice) {
     console.log("========================================");
     winningMove.appendChild(createMoveImg(humanChoice));
   } else if (humanChoice == computerChoice) {
-    round += 1;
     console.log(`Computer plays ${computerChoice}`);
     console.log(`Human plays ${humanChoice}`);
     console.log("Its a tie go again!");
     console.log("========================================");
+    document.querySelector("#Winner span").textContent = "Its a Tie!";
   } else {
-    round += 1;
     computerScore += 1;
     computerCounter.textContent = computerScore;
     console.log(`Computer plays ${computerChoice}`);
@@ -142,6 +145,9 @@ function restartGame() {
   computerCounter.textContent = "0";
   const removeGameMoves = showMove.querySelectorAll("img");
   removeGameMoves.forEach((element) => element.remove());
+  round = 1;
+  title.textContent = "Round 1";
+  document.querySelector("#Winner span").textContent = "";
   play();
 }
 function startGame() {
