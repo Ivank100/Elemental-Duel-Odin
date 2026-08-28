@@ -1,0 +1,77 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: "Cinzel", sans-serif;
+}
+.wrapper {
+  background-image: url("./img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainContent {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 12px;
+}
+.mainContent p {
+  font-size: 24px;
+}
+.gameRules {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#startButton {
+  background-color: brown;
+  margin-top: 20px;
+  padding: 8px;
+  color: white;
+  border-radius: 8px;
+}
+.showMove {
+  background-color: aqua;
+  display: Flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.spell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pickMove {
+  display: Flex;
+  gap: 2rem;
+}
+.hidden {
+  display: none;
+}
+#playerMove {
+  display: flex;
+  flex-direction: column;
+}
+#computerMove {
+  display: flex;
+  flex-direction: column;
+}
+#Winner {
+  display: flex;
+  flex-direction: column;
+}
+.showMove img {
+  width: 64px;
+  height: 64px;
+}

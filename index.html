@@ -3,9 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Elemental Duel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./img/elemental.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="wrapper">
+      <div class="mainContent">
+        <h1>Welcome to Elemental Duel!</h1>
+        <p><i>HOW TO PLAY:</i></p>
+        <div class="gameRules">
+          <div><img src="./img/Fireball_(Original_Sin_2).jpg" /></div>
+          <span>+</span>
+          <div><img src="./img/hydrosophist_rain-icon.png" /></div>
+          <span>=</span>
+          <div><img src="./img/Fireball_(Original_Sin_2).jpg" /></div>
+        </div>
+        <div class="gameRules">
+          <div><img src="./img/Fireball_(Original_Sin_2).jpg" /></div>
+          <span>+</span>
+          <div><img src="./img/geomancer-14-15.png" /></div>
+          <span>=</span>
+          <div><img src="./img/geomancer-14-15.png" /></div>
+        </div>
+        <div class="gameRules">
+          <div><img src="./img/geomancer-14-15.png" /></div>
+          <span>+</span>
+          <div><img src="./img/hydrosophist_rain-icon.png" /></div>
+          <span>=</span>
+          <div><img src="./img/hydrosophist_rain-icon.png" /></div>
+        </div>
+        <div class="showMove hidden">
+          <div id="playerMove">
+            <span>Player</span>
+          </div>
+          <div id="Winner">
+            <span>Winner</span>
+          </div>
+          <div id="computerMove">
+            <span>Computer</span>
+          </div>
+        </div>
+        <div class="spell hidden">
+          <h2>Choose your next spell</h2>
+          <div class="pickMove">
+            <img id="fireball" src="./img/Fireball_(Original_Sin_2).jpg" />
+            <img id="poisonwave" src="./img/geomancer-14-15.png" />
+            <img id="rain" src="./img/hydrosophist_rain-icon.png" />
+          </div>
+        </div>
+        <button id="startButton">Play Game</button>
+      </div>
+    </div>
+
     <script src="index.js"></script>
   </body>
 </html>
