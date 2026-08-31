@@ -41,18 +41,27 @@ async function play() {
   }
 }
 
-function createMoveImg(choice) {
+function createMoveImg(choice, animation) {
   const img = document.createElement("img");
   img.src = moveIcons[choice].src;
   img.alt = moveIcons[choice].alt;
+  if (animation) img.classList.add("animate__animated", animation);
   return img;
 }
 
 function playRound(humanChoice, computerChoice) {
   const removeGameMoves = showMove.querySelectorAll("img");
   removeGameMoves.forEach((element) => element.remove());
-  playerMove.appendChild(createMoveImg(humanChoice));
-  computerMove.appendChild(createMoveImg(computerChoice));
+  playerMove.appendChild(createMoveImg(humanChoice, "animate__fadeInRight"));
+  computerMove.appendChild(
+    createMoveImg(computerChoice, "animate__fadeInLeft"),
+  );
+  title.classList.add("animate__animated", "animate__heartBeat");
+  title.addEventListener(
+    "animationend",
+    () => title.classList.remove("animate__animated", "animate__heartBeat"),
+    { once: true },
+  );
   document.querySelector("#Winner span").textContent = "Winner!";
 
   if (
@@ -66,13 +75,14 @@ function playRound(humanChoice, computerChoice) {
     console.log(`Computer plays ${computerChoice}`);
     console.log("Human won the round!");
     console.log("========================================");
-    winningMove.appendChild(createMoveImg(humanChoice));
+    winningMove.appendChild(createMoveImg(humanChoice, "animate__zoomIn"));
   } else if (humanChoice == computerChoice) {
     console.log(`Computer plays ${computerChoice}`);
     console.log(`Human plays ${humanChoice}`);
     console.log("Its a tie go again!");
     console.log("========================================");
     document.querySelector("#Winner span").textContent = "Its a Tie!";
+    document.querySelector("#Winner span").style.fontWeight = "bold";
   } else {
     computerScore += 1;
     computerCounter.textContent = computerScore;
@@ -80,7 +90,7 @@ function playRound(humanChoice, computerChoice) {
     console.log(`Human plays ${humanChoice}`);
     console.log("Computer won the round!");
     console.log("========================================");
-    winningMove.appendChild(createMoveImg(computerChoice));
+    winningMove.appendChild(createMoveImg(computerChoice, "animate__zoomIn"));
   }
 }
 
@@ -147,6 +157,12 @@ function restartGame() {
   removeGameMoves.forEach((element) => element.remove());
   round = 1;
   title.textContent = "Round 1";
+  title.classList.add("animate__animated", "animate__heartBeat");
+  title.addEventListener(
+    "animationend",
+    () => title.classList.remove("animate__animated", "animate__heartBeat"),
+    { once: true },
+  );
   document.querySelector("#Winner span").textContent = "";
   play();
 }

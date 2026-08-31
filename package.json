@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Ivank100/rock-paper-scisscors-odin#readme",
   "dependencies": {
+    "animate.css": "^4.1.1",
     "prompt-sync": "^4.2.0"
   }
 }
