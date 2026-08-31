@@ -71,10 +71,6 @@ function playRound(humanChoice, computerChoice) {
   ) {
     humanScore += 1;
     playerCounter.textContent = humanScore;
-    console.log(`Human plays ${humanChoice}`);
-    console.log(`Computer plays ${computerChoice}`);
-    console.log("Human won the round!");
-    console.log("========================================");
     winningMove.appendChild(createMoveImg(humanChoice, "animate__zoomIn"));
   } else if (humanChoice == computerChoice) {
     console.log(`Computer plays ${computerChoice}`);
