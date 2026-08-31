@@ -47,7 +47,27 @@ body {
   background-color: brown;
   padding: 0.5rem 1.5rem;
   color: white;
+  border: none;
   border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+#startButton:hover {
+  background-color: #8b1a1a;
+}
+#startButton:active {
+  transform: translateY(1px);
+}
+#startButton:focus-visible {
+  outline: 3px solid #6b4;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  #startButton,
+  #startButton:active {
+    transform: none;
+    transition: none;
+  }
 }
 .showMove {
   background-color: aqua;
